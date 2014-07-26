@@ -43,6 +43,40 @@ binaryTreeMethods.insert = function (value) {
 
 //needs a contains methods 
 binaryTreeMethods.contains = function (value) {
+  // base case: check value and return true if the value is in this node
+  if(value === this.value) {
+
+    return true;
+  } else {
+    // evaluate if value is greater or less than node's value
+    // if greater than
+    if (value > this.value) {
+
+      // check if node.right is null
+      if (this.right === null) {
+        // if is null, return false
+        return false;
+      } else {
+        // if is not null, redo .contains on node.right
+        return this.right.contains(value);
+      }
+
+
+    // if less than
+    } else {
+      
+      // check if node.left is null
+      if (this.left === null) {
+        // if is null, return false
+        return false;
+      } else {
+        // if is not null, redo .contains on node.left
+        return this.left.contains(value);
+      }
+
+    }
+  }
+
   
 };
 
