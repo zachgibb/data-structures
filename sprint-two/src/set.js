@@ -7,7 +7,7 @@ var makeSet = function(){
 var setPrototype = {};
 
 setPrototype.add = function(item){ // constant time
-  this._storage[item] = item;
+  this._storage[item] = true;
 };
 
 setPrototype.contains = function(item){ // constant time
