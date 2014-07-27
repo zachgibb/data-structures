@@ -47,17 +47,11 @@ var makeNode = function(value){ // constant time
 };
 
 /*
- * Complexity: What is the time complexity of the above functions?
+ * Complexity: What is the time complexity of the above functions?\
+ *
+ * .addToTail: constant time
+ * .removeHead: constant time
+ * .contains: linear time
+ * .makeNode: constant time
+ *
  */
-
-
-// head------->node1 
-//              value->data1
-//              next----------------->node2 
-//                                     value-> data2
-//                                     next------------->node3 <------------tail.value
-//                                                        value->data1
-//                                                        next ->null 
-
-
-

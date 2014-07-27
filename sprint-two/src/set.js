@@ -24,4 +24,9 @@ setPrototype.remove = function(item){ // constant time
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *
+ * .add: constant time
+ * .contains: constant time
+ * .remove: constant time
+ *
  */

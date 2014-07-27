@@ -94,4 +94,12 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *
+ * addNode: constant
+ * contains: constant
+ * removeEdge: constant
+ * addEdge: constant
+ * getEdge: constant
+ * removeNode: linear to the amount of edges the node you are removing has
+ *
  */

@@ -4,7 +4,7 @@ var HashTable = function(){
   
 };
 
-HashTable.prototype.insert = function(k, v){ // right now it's linear time, though it should be constant
+HashTable.prototype.insert = function(k, v){
   // setting a hash value to the key
   var i = getIndexBelowMaxForKey(k, this._limit);
   var subArray = this._storage.get(i);
@@ -32,7 +32,7 @@ HashTable.prototype.insert = function(k, v){ // right now it's linear time, thou
 
 };
 
-HashTable.prototype.retrieve = function(k){ // right now it's linear time, though it should be constant
+HashTable.prototype.retrieve = function(k){
   // set a hash value to the key
   var i = getIndexBelowMaxForKey(k, this._limit);
 
@@ -56,7 +56,7 @@ HashTable.prototype.retrieve = function(k){ // right now it's linear time, thoug
 
 };
 
-HashTable.prototype.remove = function(k){ // linear time, should be constant
+HashTable.prototype.remove = function(k){
   // find the hash value of the key
   var i = getIndexBelowMaxForKey(k, this._limit);
 
@@ -76,4 +76,7 @@ HashTable.prototype.remove = function(k){ // linear time, should be constant
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *
+ * all: constant time
+ *
  */
