@@ -13,13 +13,13 @@ var makeQueue = function(){
   };
 
   someInstance.dequeue = function(){
-    if( size > 0 ) {
+    if ( size ) {
       size--;
+      var temp = storage[start];
+      delete storage[start];
+      start++;
+      return temp;
     }
-    var temp = storage[start];
-    delete storage[start];
-    start++;
-    return temp;
   };
 
   someInstance.size = function(){

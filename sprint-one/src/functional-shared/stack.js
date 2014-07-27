@@ -18,12 +18,12 @@ var stackMethods = {
     this._length++;
   },
   pop: function () {
-    if (this._length > 0) {
+    if (this._length) {
       this._length--;
+      var temp = this._storage[this._length];
+      delete this._storage[this._length];
+      return temp;
     }
-    var temp = this._storage[this._length];
-    delete this._storage[this._length];
-    return temp;
   },
   size: function () {
     return this._length;

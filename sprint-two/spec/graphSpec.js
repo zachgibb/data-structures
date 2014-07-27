@@ -26,6 +26,14 @@ describe('graph', function() {
     expect(graph.contains('puppies')).to.equal(false);
   });
 
+  it('should keep track of length of nodes that were inserted', function() {
+    graph.addNode('puppies');
+    graph.addNode('kittens');
+    graph.removeNode('puppies');
+    graph.addNode('babies');
+    expect(graph.getEdge('kittens', 'babies')).to.equal(true);
+  });
+
   it('should automatically create an edge between two nodes if there is only one node in the graph', function() {
     graph.addNode('puppies');
     graph.addNode('kittens');
@@ -38,6 +46,15 @@ describe('graph', function() {
     graph.addNode('penguins', 'puppies');
     expect(graph.getEdge('penguins', 'puppies')).to.equal(true);
     expect(graph.getEdge('penguins', 'kittens')).to.equal(false);
+  });
+
+  it('should add edges between two nodes', function() {
+    graph.addNode('puppies');
+    graph.addNode('kittens');
+    graph.addNode('penguins', 'puppies');
+    graph.addEdge('penguins', 'kittens');
+    expect(graph.getEdge('penguins', 'puppies')).to.equal(true);
+    expect(graph.getEdge('penguins', 'kittens')).to.equal(true);
   });
 
   it('should remove edges between nodes', function() {

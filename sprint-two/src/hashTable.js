@@ -2,18 +2,16 @@ var HashTable = function(){
   this._limit = 8;
   this._storage = makeLimitedArray(this._limit);
   
-
-  //create subarrays at each index of storage array
-  for (var i = 0; i < this._limit; i++) {
-    this._storage.set(i, []);
-  }
-
 };
 
 HashTable.prototype.insert = function(k, v){ // right now it's linear time, though it should be constant
   // setting a hash value to the key
   var i = getIndexBelowMaxForKey(k, this._limit);
   var subArray = this._storage.get(i);
+  if (!subArray) {
+    subArray = [];
+    this._storage.set(i, subArray);
+  }
   
   //check if the subarray already has the key-value pair.
   var exists = _.each(subArray, function(value) {
@@ -32,7 +30,6 @@ HashTable.prototype.insert = function(k, v){ // right now it's linear time, thou
     subArray.push([k,v]);
   }
 
-  console.log(subArray);
 };
 
 HashTable.prototype.retrieve = function(k){ // right now it's linear time, though it should be constant

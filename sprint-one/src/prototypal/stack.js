@@ -2,8 +2,8 @@ var makeStack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var instance = Object.create(stackMethods);
-  instance.storage = {};
-  instance.length = 0;
+  instance._storage = {};
+  instance._length = 0;
 
   return instance;
 };
@@ -11,19 +11,19 @@ var makeStack = function() {
 var stackMethods = {
   // this has all the other code
   push: function(value){
-    this.storage[this.length] = value;
-    this.length++;
+    this._storage[this._length] = value;
+    this._length++;
   },
   pop: function(){
-    if(this.length > 0){
-      this.length--;
+    if(this._length){
+      this._length--;
+      var temp = this._storage[this._length];
+      delete this._storage[this._length];
+      return temp;
     }
-    var temp = this.storage[this.length];
-    delete this.storage[this.length];
-    return temp;
   },
   size: function(){
-    return this.length;
+    return this._length;
   }
 };
 

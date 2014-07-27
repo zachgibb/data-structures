@@ -2,28 +2,28 @@ var makeQueue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var instance = Object.create(queueMethods);
-  instance.storage = {};
-  instance.length = 0;
-  instance.start = 0;
+  instance._storage = {};
+  instance._length = 0;
+  instance._start = 0;
   return instance;
 };
 
 var queueMethods = {
   enqueue: function (value) {
-    this.storage[this.length + this.start] = value;
-    this.length++;
+    this._storage[this._length + this._start] = value;
+    this._length++;
   },
   dequeue: function () {
-    if (this.length > 0) {
-      this.length--;
+    if (this._length) {
+      this._length--;
+      var temp = this._storage[this._start];
+      delete this._storage[this._start];
+      this._start++;
+      return temp;
     }
-    var temp = this.storage[this.start];
-    delete this.storage[this.start];
-    this.start++;
-    return temp;
   },
   size: function () {
-    return this.length;
+    return this._length;
   }
 };
 
